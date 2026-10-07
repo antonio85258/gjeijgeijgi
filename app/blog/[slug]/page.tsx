@@ -1,0 +1,2 @@
+export function generateStaticParams(){return [{slug:"nextjs-vvedenie"},{slug:"react-osnovy"}];}
+export default async function BlogPost({params}:{params:Promise<{slug:string}>}){const{slug}=await params;const titles:Record<string,string>={"nextjs-vvedenie":"Введение в Next.js","react-osnovy":"Основы React"};return <main><article className="hero"><h1>{titles[slug]??`Статья: ${slug}`}</h1><p>Страница создана с помощью динамического маршрута /blog/[slug].</p><p className="code">slug: {slug}</p></article></main>}
